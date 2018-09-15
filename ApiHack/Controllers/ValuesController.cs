@@ -16,9 +16,10 @@ namespace ApiHack.Controllers
         }
 
         // GET api/values/5
-        public string Get(int id)
+        public IHttpActionResult Get(int id)
         {
-            return "value";
+            var data = "hola";
+            return Ok(data);
         }
 
         // POST api/values
