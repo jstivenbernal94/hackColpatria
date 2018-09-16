@@ -4,6 +4,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ViewModels;
 
 namespace Data.Entity
 {
@@ -19,11 +20,5 @@ namespace Data.Entity
 
 
 
-    }
-
-    public class ResponseLogin
-    {
-        public int id { get; set; }
-        public string namec { get; set; }
     }
 }
