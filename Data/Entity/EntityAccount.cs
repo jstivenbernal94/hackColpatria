@@ -30,13 +30,14 @@ namespace Data.Entity
                 .ToList();
         }
 
-        public string DataCrowfounding(int flag, int user, int prod, int points)
+        public string DataCrowfounding(int flag, int user, int prod, int points, int help)
         {
-            return _ctx.Database.SqlQuery<string>("sp_crowfounding @flag, @idUser, @idProd, @points", 
+            return _ctx.Database.SqlQuery<string>("sp_crowfounding @flag, @idUser, @idProd, @points, @idHelp", 
                 new SqlParameter("@flag", flag),
                 new SqlParameter("@idUser", user),
                 new SqlParameter("@idProd", prod),
-                new SqlParameter("@points", points)).FirstOrDefault();
+                new SqlParameter("@points", points),
+                new SqlParameter("@idHelp", help)).FirstOrDefault();
         }
     }
 }

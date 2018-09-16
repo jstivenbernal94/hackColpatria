@@ -25,5 +25,6 @@ namespace ViewModels
         public int idUser { get; set; }
         public int idProd { get; set; }
         public int points { get; set; }
+        public int help { get; set; }
     }
 }
