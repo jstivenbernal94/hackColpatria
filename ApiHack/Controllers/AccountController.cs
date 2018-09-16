@@ -40,5 +40,15 @@ namespace ApiHack.Controllers
 
             return Ok(dataList);
         }
+
+        [AllowAnonymous]
+        [HttpPost]
+        [Route("api/Account/Crowfounding")]
+        public IHttpActionResult Crowfounding(Crowfounding crow)
+        {
+            var entity = new EntityAccount();
+            string response = entity.DataCrowfounding(crow.flag, crow.idUser, crow.idProd, crow.points);
+            return Ok(response);
+        }
     }
 }
