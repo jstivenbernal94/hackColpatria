@@ -16,10 +16,8 @@ namespace Logic
             //Create COM Objects. Create a COM object for everything that is referenced
             
             Excel.Application xlApp = new Excel.Application();
-          
 
-            string path = ruta.Replace(@"\\",@"\");
-            Excel.Workbook xlWorkbook = xlApp.Workbooks.Open(("@" + ruta));
+            Excel.Workbook xlWorkbook = xlApp.Workbooks.Open((@"C:\Users\Usuario\source\repos\hackColpatria\HackProject\Archivos\Proveedores\" + ruta));
             Excel._Worksheet xlWorksheet = xlWorkbook.Sheets[1];
             Excel.Range xlRange = xlWorksheet.UsedRange;
 

@@ -59,6 +59,8 @@ namespace HackProject.Controllers
                 {
                     string path = Path.Combine(Server.MapPath("~/Archivos/Proveedores/"),Path.GetFileName(doc.FileName));
 
+                    string path2 = Path.GetFileName(doc.FileName);
+
                     if (System.IO.File.Exists(path))
                     {
                         System.IO.File.Delete(path);
@@ -70,8 +72,8 @@ namespace HackProject.Controllers
                     }
 
                     Archivo arc = new Archivo();
-                    string[][] datosArchivo = arc.LeerArchivo(path);
-                    string response = "0";
+                    string[][] datosArchivo = arc.LeerArchivo(path2);
+                    
                     foreach (var item in datosArchivo)
                     {
                         if (item != null)
@@ -85,13 +87,15 @@ namespace HackProject.Controllers
                                 points = Convert.ToInt32(item[5]),
                                 stock = Convert.ToInt32(item[6]),
                             };
-                            response = "servicio"; //entity.DataInsertProduct(data.name, data.prov, data.status, data.value, data.points, data.stock);
+
+                            var proxi = new Proxi();
+                            string respuesta = proxi.CargueExcel(data);
+
+                             //entity.DataInsertProduct(data.name, data.prov, data.status, data.value, data.points, data.stock);
                         }
 
                     }
 
-                    var proxi = new Proxi();
-                    int Productos = proxi.CargueExcel(path);
                 }
                 catch (Exception ex)
                 {

@@ -17,7 +17,7 @@ namespace SLC
 
         bool ActualizarProducto(Producto updateProduct);
 
-        int CargueExcel(string path);
+        string CargueExcel(Product producto);
 
         Producto BuscarProductoID(int ID);
 
