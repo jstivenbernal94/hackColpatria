@@ -220,6 +220,10 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Logic\Logic.csproj">
+      <Project>{DBFAA7EC-7CCC-4CFB-956E-0A3B5C77F40A}</Project>
+      <Name>Logic</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ProxiService\ProxiService.csproj">
       <Project>{aa592db6-6e53-4fb8-be0e-424187c3f665}</Project>
       <Name>ProxiService</Name>
