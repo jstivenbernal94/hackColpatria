@@ -18,8 +18,8 @@ namespace Logic
             Excel.Application xlApp = new Excel.Application();
           
 
-            string path = ruta.Replace(@"\\",@"\");
-            Excel.Workbook xlWorkbook = xlApp.Workbooks.Open(("@" + ruta));
+            //string path = ruta.Replace(@"\\",@"\");
+            Excel.Workbook xlWorkbook = xlApp.Workbooks.Open((@"C:\Users\Home\Documents\GitHub\hackColpatria\HackProject\Archivos\Proveedores\" + ruta));
             Excel._Worksheet xlWorksheet = xlWorkbook.Sheets[1];
             Excel.Range xlRange = xlWorksheet.UsedRange;
 

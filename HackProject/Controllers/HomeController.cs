@@ -59,15 +59,15 @@ namespace HackProject.Controllers
                 {
                     string path = Path.Combine(Server.MapPath("~/Archivos/Proveedores/"),Path.GetFileName(doc.FileName));
 
-                    if (System.IO.File.Exists(path))
-                    {
-                        System.IO.File.Delete(path);
-                        doc.SaveAs(path);
-                    }
-                    else
-                    {
-                        doc.SaveAs(path);
-                    }
+                    //if (System.IO.File.Exists(path))
+                    //{
+                    //    System.IO.File.Delete(path);
+                    //    doc.SaveAs(path);
+                    //}
+                    //else
+                    //{
+                    //    doc.SaveAs(path);
+                    //}
 
                     Archivo arc = new Archivo();
                     string[][] datosArchivo = arc.LeerArchivo(path);
