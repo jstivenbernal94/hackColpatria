@@ -57,7 +57,19 @@ namespace HackProject.Controllers
                 try
                 {
                     string path = Path.Combine(Server.MapPath("~/Archivos/Proveedores/"),Path.GetFileName(doc.FileName));
-                    doc.SaveAs(path);
+
+                    if (System.IO.File.Exists(path))
+                    {
+                        System.IO.File.Delete(path);
+                        doc.SaveAs(path);
+                    }
+                    else
+                    {
+                        doc.SaveAs(path);
+                    }
+
+                    var proxi = new Proxi();
+                    int Productos = proxi.CargueExcel(path);
                 }
                 catch (Exception ex)
                 {

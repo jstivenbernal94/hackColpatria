@@ -1,58 +1,94 @@
 ﻿@model IEnumerable<ViewModels.Provee>
 @{
     ViewBag.Title = "Detalles";
+    Layout = null;
 }
 
-<style>
-    .productos {
-        text-align: center;
-        border: 1px solid #ccc;
-        margin: 2px;
-        padding: 10px;
-        border-radius: 8px;
-    }
+<!DOCTYPE html>
 
-    .propiedades label, .propiedades small {
-        width: 100%;
-        float: left;
-        margin: 20px 0px;
-    }
-</style>
-
-<div class="container">
-    <h2>Proveedor : @ViewBag.datos.namec</h2>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
 
 
-    <div class="tab-content">
-        <div id="home" class="tab-pane fade in active">
-            <h3>HOME</h3>
-            <p>que puede hacer, informacion de funcion</p>
-        </div>
-        <div>
-            <h3>Cargue</h3>
-            <p>Cargue de documento de excel</p>
-            @using (Html.BeginForm("subir", "home", FormMethod.Post, new { enctype = "multipart/form-data" }))
-            {
-                <input type="file" name="doc" id="file" /><button type="submit">Subir archivo</button>
-            }
-        </div>
+    <style>
+        .productos {
+            color:darkslategray;
+            margin-right:30px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 8px;
+            background-color:white;
+        }
+
+    </style>
+</head>
+
+<body style="background-image:url('../../Imagenes/bg.jpg');color:white!important">
+    <div class="container-fluid">
         <div class="row">
-            <h3>Productos</h3>
+            <nav class="row navbar navbar-light bg-light">
+                <a class="navbar-brand" href="">
+                    <img style="width:50%;float:left;margin-top:-50px!important;" src="../../Imagenes/scotiabankColpatriaLogos.png" />
+                </a>
 
-            @foreach (var item in Model)
-            {
-                <div class="productos col-sm-4">
-                    <img class="col-sm-8" src="~/Imagenes/Proveedores/@ViewBag.img" />
-                    <div class="col-sm-4 propiedades">
-                        <label>@item.namec</label>
-                        <small><b>Puntos: </b> @item.points</small>
-                        <small><b>Precio: </b> @item.val</small>
-                        <small><b>Unidades: </b>@item.stock</small>
+            </nav>
+            <div class="container" style="margin-top:-40px;">
+              
+                <div class="row">
+                    <h2>Proveedor : @ViewBag.datos.namec</h2>
+                    <hr />
+                    <h3>Productos</h3>
+                    <div class="col-lg-4" style="border-right:1px solid white;background-color:white;padding:10px;border-radius:5px;color:darkslategray;">
+                        <div>
+                            <h3 style="padding-left:10px!important;">Cargar</h3>
+                            <p style="padding-left:10px!important;">Aquí puede cargar su archivo excel para crear los productos</p>
+                            @using (Html.BeginForm("subir", "home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                            {
+                                <input class="form-control" type="file" name="doc" id="file" />
+                                <br />
+                                <button class="btn btn-success btn-block" type="submit">Subir archivo</button>
+
+
+
+                            }
+                        </div>
                     </div>
-                    
+                    <div class="col-lg-8">
+                        <div class="row">
+                            <div class="col-lg-12">
+
+
+                                @foreach (var item in Model)
+                                {
+                                <div class="productos col-lg-12 text-left" style="margin-bottom:10px;">
+                                    <div class="col-lg-1">
+                                        <img style="width:50px;float:left;margin-right:20px;" src="../../Imagenes/Proveedores/@ViewBag.img" />
+
+                                    </div>
+                                    <div style="padding-left:30px" class="col-lg-11">
+                                        <label style="font-size:20px!important;" class="text-left text-capitalize">@item.namec</label><br />
+                                        <small><b>Puntos: </b> @item.points</small> |
+                                        <small><b>Precio: </b> @item.val</small> |
+                                        <small><b>Unidades: </b>@item.stock</small>
+                                    </div>
+                                    
+                                </div>
+                                }
+                            </div>
+                        </div>
+
+                    </div>
+
+
                 </div>
-            }
+            </div>
         </div>
     </div>
-</div>
 
+
+</body>
+</html>

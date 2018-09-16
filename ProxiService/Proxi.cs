@@ -13,7 +13,7 @@ namespace ProxiService
     public class Proxi : IService
     {
         //direccion base
-        string BaseAddress = "http://apihack.azurewebsites.net/";
+        string BaseAddress = "http://localhost:55101/";
 
 
         // los metodos asincrono regresan tareas
@@ -109,6 +109,21 @@ namespace ProxiService
         }
 
         //------------------------------------------------------------------------------------------------------
+
+        public async Task<int> CargueExcelAsync(string path)
+        {
+            return await SendGet<int>($"/api/Product/CargueProductExcel/{path}");
+        }
+
+        public int CargueExcel(string path)
+        {
+            int Result = 0;
+            Task.Run(async () => Result = await CargueExcelAsync(path)).Wait();
+            return Result;
+        }
+
+        //------------------------------------------------------------------------------------------------------
+
 
         public bool ActualizarProducto(Producto updateProduct)
         {
