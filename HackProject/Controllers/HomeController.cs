@@ -5,44 +5,31 @@ using System.Linq;
 using System.Net.Http;
 using System.Web;
 using System.Web.Mvc;
+using ViewModels;
 
 namespace HackProject.Controllers
 {
     public class HomeController : Controller
-    {
-        string BaseAddress = "http://localhost:57035/";
-
-        // GET: Student
+    {        
         public ActionResult Index()
+        {            
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Index(Login Logueo)
         {
-            //T Result = default(T);
+            var proxi = new Proxi();
+            var Model = proxi.CargarDatosProveedor(Logueo);
+            return View("Productos", Model);
+        }
 
+        public ActionResult Productos(ResponseLogin login)
+        {
+            if (login.id > 0)
+            {
 
-
-            //using (var client = new HttpClient())
-            //{
-            //    client.BaseAddress = new Uri("http://localhost:64189/api/");
-            //    //HTTP GET
-            //    var responseTask = client.GetAsync("proveedor");
-            //    responseTask.Wait();
-
-            //    var result = responseTask.Result;
-            //    if (result.IsSuccessStatusCode)
-            //    {
-            //        var readTask = result.Content.ReadAsAsync<IList<StudentViewModel>>();
-            //        readTask.Wait();
-
-            //        students = readTask.Result;
-            //    }
-            //    else //web api sent error response 
-            //    {
-            //        //log response status here..
-
-            //        students = Enumerable.Empty<StudentViewModel>();
-
-            //        ModelState.AddModelError(string.Empty, "Server error. Please contact administrator.");
-            //    }
-            //}
+            }
             return View();
         }
 

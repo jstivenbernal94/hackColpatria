@@ -25,6 +25,6 @@ namespace SLC
 
         // proveedor
 
-        Proveedor BuscarProveedorID(int ID);
+        ResponseLogin CargarDatosProveedor(Login logueo);
     }
 }

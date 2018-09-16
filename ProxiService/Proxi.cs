@@ -13,7 +13,7 @@ namespace ProxiService
     public class Proxi : IService
     {
         //direccion base
-        string BaseAddress = "http://localhost:55101/";
+        string BaseAddress = "http://apihack.azurewebsites.net/";
 
 
         // los metodos asincrono regresan tareas
@@ -81,8 +81,24 @@ namespace ProxiService
             return Result;
         }
 
+        //------------------------------------------------------------------------------------------------------
+        public async Task<ResponseLogin> CargarDatosProveedorAsync(Login Logueo)
+        {
+            //return await SendGet<Proveedor>($"/api/Account/Login/{usuario}");
+            //string parametros = "?user=" + usuario + "&password=" + contraseña;
+            return await SendPost<ResponseLogin, Login>("/api/nwind/CreateProduct", Logueo);
+            //return await SendPost<ResponseLogin, string>("api/Account/Login", parametros);//?user = mramos & password = qwerty123
+        }
+
+        public ResponseLogin CargarDatosProveedor(Login Logueo)
+        {
+            ResponseLogin Result = null;
+            Task.Run(async () => Result = await CargarDatosProveedorAsync(Logueo)).Wait();
+            return Result;
+        }
 
         //------------------------------------------------------------------------------------------------------
+
         public bool ActualizarProducto(Producto updateProduct)
         {
             throw new NotImplementedException();
@@ -93,12 +109,7 @@ namespace ProxiService
         {
             throw new NotImplementedException();
         }
-
-        public Proveedor BuscarProveedorID(int ID)
-        {
-            throw new NotImplementedException();
-        }
-
+                
         public Producto CrearProducto(Producto newProduct)
         {
             throw new NotImplementedException();
@@ -112,6 +123,7 @@ namespace ProxiService
         public List<Producto> FiltraProductosProveedor(int ID)
         {
             throw new NotImplementedException();
-        }       
+        }
+
     }
 }
