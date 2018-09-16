@@ -42,6 +42,17 @@ namespace ApiHack.Controllers
         }
 
         [AllowAnonymous]
+        [HttpPost]
+        [Route("api/Account/InsertProduct")]
+        public IHttpActionResult InsertProduct(Product prod)
+        {
+            EntityProduct entity = new EntityProduct();
+            var response = entity.DataInsertProduct(prod.name, prod.prov, prod.status, prod.value, prod.points, prod.stock);
+            return Ok(response);
+        }
+
+
+        [AllowAnonymous]
         [HttpGet]
         [Route("api/Product/ListProdUser")]
         public IHttpActionResult ListProdUser(int flag)
