@@ -1,0 +1,58 @@
+﻿@model IEnumerable<ViewModels.Provee>
+@{
+    ViewBag.Title = "Detalles";
+}
+
+<style>
+    .productos {
+        text-align: center;
+        border: 1px solid #ccc;
+        margin: 2px;
+        padding: 10px;
+        border-radius: 8px;
+    }
+
+    .propiedades label, .propiedades small {
+        width: 100%;
+        float: left;
+        margin: 20px 0px;
+    }
+</style>
+
+<div class="container">
+    <h2>Proveedor : @ViewBag.datos.namec</h2>
+
+
+    <div class="tab-content">
+        <div id="home" class="tab-pane fade in active">
+            <h3>HOME</h3>
+            <p>que puede hacer, informacion de funcion</p>
+        </div>
+        <div>
+            <h3>Cargue</h3>
+            <p>Cargue de documento de excel</p>
+            @using (Html.BeginForm("subir", "home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                <input type="file" name="doc" id="file" /><button type="submit">Subir archivo</button>
+            }
+        </div>
+        <div class="row">
+            <h3>Productos</h3>
+
+            @foreach (var item in Model)
+            {
+                <div class="productos col-sm-4">
+                    <img class="col-sm-8" src="~/Imagenes/Proveedores/@ViewBag.img" />
+                    <div class="col-sm-4 propiedades">
+                        <label>@item.namec</label>
+                        <small><b>Puntos: </b> @item.points</small>
+                        <small><b>Precio: </b> @item.val</small>
+                        <small><b>Unidades: </b>@item.stock</small>
+                    </div>
+                    
+                </div>
+            }
+        </div>
+    </div>
+</div>
+

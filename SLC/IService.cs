@@ -21,7 +21,7 @@ namespace SLC
 
         bool EliminarProducto(int ID);
 
-        List<Producto> FiltraProductosProveedor(int ID);
+        List<Provee> FiltraProductosProveedor(int ID);
 
         // proveedor
 

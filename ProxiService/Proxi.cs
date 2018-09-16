@@ -84,16 +84,27 @@ namespace ProxiService
         //------------------------------------------------------------------------------------------------------
         public async Task<ResponseLogin> CargarDatosProveedorAsync(Login Logueo)
         {
-            //return await SendGet<Proveedor>($"/api/Account/Login/{usuario}");
-            //string parametros = "?user=" + usuario + "&password=" + contraseña;
-            return await SendPost<ResponseLogin, Login>("/api/nwind/CreateProduct", Logueo);
-            //return await SendPost<ResponseLogin, string>("api/Account/Login", parametros);//?user = mramos & password = qwerty123
+            return await SendPost<ResponseLogin, Login>("/api/Account/Login", Logueo);
         }
 
         public ResponseLogin CargarDatosProveedor(Login Logueo)
         {
             ResponseLogin Result = null;
             Task.Run(async () => Result = await CargarDatosProveedorAsync(Logueo)).Wait();
+            return Result;
+        }
+
+        //------------------------------------------------------------------------------------------------------
+
+        public async Task<List<Provee>> FiltraProductosProveedorAsync(int ID)
+        {
+            return await SendGet<List<Provee>>($"/api/Account/ListProdProve?prove={ID}");
+        }
+
+        public List<Provee> FiltraProductosProveedor(int ID)
+        {
+            List<Provee> Result = null;
+            Task.Run(async () => Result = await FiltraProductosProveedorAsync(ID)).Wait();
             return Result;
         }
 
@@ -120,10 +131,6 @@ namespace ProxiService
             throw new NotImplementedException();
         }
 
-        public List<Producto> FiltraProductosProveedor(int ID)
-        {
-            throw new NotImplementedException();
-        }
 
     }
 }
