@@ -13,7 +13,7 @@ namespace ProxiService
     public class Proxi : IService
     {
         //direccion base
-        string BaseAddress = "http://localhost:55101/";
+        string BaseAddress = "http://apihack.azurewebsites.net/";
 
 
         // los metodos asincrono regresan tareas
