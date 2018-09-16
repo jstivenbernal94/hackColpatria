@@ -16,8 +16,8 @@ namespace Data.Entity
         {
             try
             {
-                return _ctx.Database.SqlQuery<string>("sp_cargueProductos2 @namec,@prov,@status,@val,@points,@stock", 
-                    new SqlParameter("@namec", name)).FirstOrDefault();
+                return _ctx.Database.SqlQuery<string>("EXEC sp_cargueProductos2 {0}, {1}, {2},{3}, {4}, {5}",
+                    new object[] {name, prov, status, val, points, stocks}).FirstOrDefault();
             }
             catch (Exception e)
             {

@@ -19,4 +19,13 @@ namespace ViewModels
         public string LogoProveedor { get; set; }
 
     }
+
+    public class Provee
+    {
+        public int id { get; set; }
+        public string namec { get; set; }
+        public int val { get; set; }
+        public int points { get; set; }
+        public int stock { get; set; }
+    }
 }

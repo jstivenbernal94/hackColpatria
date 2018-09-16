@@ -28,5 +28,17 @@ namespace ApiHack.Controllers
             }
             return Ok(data);
         }
+
+        [AllowAnonymous]
+        [HttpGet]
+        [Route("api/Account/ListProdProve")]
+        public IHttpActionResult ListProdProve(int prove)
+        {
+            var entity = new EntityAccount();
+            var dataList = new List<Provee>();
+            dataList = entity.DataListProdProvee(prove);
+
+            return Ok(dataList);
+        }
     }
 }

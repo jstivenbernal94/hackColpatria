@@ -15,5 +15,7 @@ namespace ViewModels
     {
         public int id { get; set; }
         public string namec { get; set; }
+        public int totalPoints { get; set; }
+        public int expirationPoints { get; set; }
     }
 }

@@ -24,7 +24,11 @@ namespace Data.Entity
                 new SqlParameter("@pass", password)).FirstOrDefault();
         }
 
-
+        public List<Provee> DataListProdProvee(int provee)
+        {
+            return _ctx.Database.SqlQuery<Provee>("sp_listaProdProv @idProv", new SqlParameter("@idProv", provee))
+                .ToList();
+        }
 
 
     }
