@@ -47,7 +47,7 @@ namespace ApiHack.Controllers
         public IHttpActionResult Crowfounding(Crowfounding crow)
         {
             var entity = new EntityAccount();
-            string response = entity.DataCrowfounding(crow.flag, crow.idUser, crow.idProd, crow.points);
+            string response = entity.DataCrowfounding(crow.flag, crow.idUser, crow.idProd, crow.points, crow.help);
             return Ok(response);
         }
     }
