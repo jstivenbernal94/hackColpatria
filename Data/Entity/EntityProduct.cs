@@ -25,5 +25,11 @@ namespace Data.Entity
             }
             
         }
+
+        public List<ProducUser> DataListProd(int flag)
+        {
+            return _ctx.Database.SqlQuery<ProducUser>("sp_listaProductos @flag", new SqlParameter("@flag", flag))
+                .ToList();
+        }
     }
 }
