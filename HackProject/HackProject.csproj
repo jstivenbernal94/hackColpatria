@@ -192,6 +192,7 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -211,6 +212,10 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ProxiService\ProxiService.csproj">
+      <Project>{aa592db6-6e53-4fb8-be0e-424187c3f665}</Project>
+      <Name>ProxiService</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ViewModels\ViewModels.csproj">
       <Project>{e4570d0e-19f6-4f29-a561-8be7e05264f6}</Project>
       <Name>ViewModels</Name>
