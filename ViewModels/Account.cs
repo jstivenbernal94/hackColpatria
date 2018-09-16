@@ -18,4 +18,12 @@ namespace ViewModels
         public int totalPoints { get; set; }
         public int expirationPoints { get; set; }
     }
+
+    public class Crowfounding
+    {
+        public int flag { get; set; }
+        public int idUser { get; set; }
+        public int idProd { get; set; }
+        public int points { get; set; }
+    }
 }
