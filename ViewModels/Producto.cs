@@ -14,4 +14,14 @@ namespace ViewModels
         public string PrecioProducto { get; set; }
         public Int32 UnidadesStock { get; set; }
     }
+
+    public class Product
+    {
+        public string name { get; set; }
+        public int prov { get; set; }
+        public int status { get; set; }
+        public int value { get; set; }
+        public int points { get; set; }
+        public int stock { get; set; }
+    }
 }

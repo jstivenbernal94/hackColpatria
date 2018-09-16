@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using ViewModels;
 
 namespace ApiHack.Controllers
 {
@@ -13,10 +14,18 @@ namespace ApiHack.Controllers
         [AllowAnonymous]
         [HttpPost]
         [Route("api/Account/Login")]
-        public IHttpActionResult Login(string user, string password)
+        public IHttpActionResult Login(Login dataLogin)
         {
             var entity = new EntityAccount();
-            var data = entity.DataLoginUser(user, password);
+            var data = new ResponseLogin();
+            if (dataLogin.plataforma.Equals("m"))
+            {
+                data = entity.DataLoginUser(dataLogin.usuario, dataLogin.contraseña);
+            }
+            else if (dataLogin.plataforma.Equals("w"))
+            {
+                data = entity.DataLoginProve(dataLogin.usuario, dataLogin.contraseña);
+            }
             return Ok(data);
         }
     }

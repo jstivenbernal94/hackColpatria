@@ -18,6 +18,13 @@ namespace Data.Entity
                 new SqlParameter("@pass", password)).FirstOrDefault();
         }
 
+        public ResponseLogin DataLoginProve(string user, string password)
+        {
+            return _ctx.Database.SqlQuery<ResponseLogin>("sp_loginProveedor @user, @pass", new SqlParameter("@user", user),
+                new SqlParameter("@pass", password)).FirstOrDefault();
+        }
+
+
 
 
     }

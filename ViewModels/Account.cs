@@ -8,6 +8,7 @@ namespace ViewModels
 {
     public class Account
     {
+
     }
 
     public class ResponseLogin
