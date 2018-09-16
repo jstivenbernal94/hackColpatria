@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using ViewModels;
 using System.IO;
+using Logic;
 
 namespace HackProject.Controllers
 {
@@ -66,6 +67,27 @@ namespace HackProject.Controllers
                     else
                     {
                         doc.SaveAs(path);
+                    }
+
+                    Archivo arc = new Archivo();
+                    string[][] datosArchivo = arc.LeerArchivo(path);
+                    string response = "0";
+                    foreach (var item in datosArchivo)
+                    {
+                        if (item != null)
+                        {
+                            var data = new Product
+                            {
+                                name = item[1],
+                                prov = Convert.ToInt32(item[2]),
+                                status = Convert.ToInt32(item[3]),
+                                value = Convert.ToInt32(item[4]),
+                                points = Convert.ToInt32(item[5]),
+                                stock = Convert.ToInt32(item[6]),
+                            };
+                            response = "servicio"; //entity.DataInsertProduct(data.name, data.prov, data.status, data.value, data.points, data.stock);
+                        }
+
                     }
 
                     var proxi = new Proxi();
