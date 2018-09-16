@@ -11,8 +11,11 @@ namespace ViewModels
         public int IDProducto { get; set; }
 
         public string NombreProducto { get; set; }
+        public string Proveedor { get; set; }
+        public string Estado { get; set; }
         public string PrecioProducto { get; set; }
-        public Int32 UnidadesStock { get; set; }
+        public string Puntos { get; set; }
+        public string UnidadesStock { get; set; }
     }
 
     public class Product

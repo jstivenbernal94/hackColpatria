@@ -5,6 +5,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using Data.Entity;
+using Logic;
 using ViewModels;
 
 namespace ApiHack.Controllers
@@ -13,22 +14,30 @@ namespace ApiHack.Controllers
     {
         [AllowAnonymous]
         [HttpGet]
-        [Route("api/Product/Product")]
-        public string product()
+        [Route("api/Product/CargueProductExcel")]
+        public string CargueProductExcel(string ruta)
         {
             EntityProduct entity = new EntityProduct();
-            var data = new Product
+            Archivo arc = new Archivo();
+            string[][] datosArchivo = arc.LeerArchivo(ruta);
+            string response = "0";
+            foreach (var item in datosArchivo)
             {
-                name = "prueba",
-                prov = 1,
-                status = 1,
-                value = 1200,
-                points = 6,
-                stock = 3
-            };
-
-            string xml = Logic.ConvertToXml.Serialize(data);
-            var response = entity.DataInsertProduct(data.name,data.prov,data.status,data.value,data.points,data.stock);
+                if (item != null)
+                {
+                    var data = new Product
+                    {
+                        name = item[1],
+                        prov = Convert.ToInt32(item[2]),
+                        status = Convert.ToInt32(item[3]),
+                        value = Convert.ToInt32(item[4]),
+                        points = Convert.ToInt32(item[5]),
+                        stock = Convert.ToInt32(item[6]),
+                    };
+                    response = entity.DataInsertProduct(data.name, data.prov, data.status, data.value, data.points, data.stock);
+                }
+                
+            }
             return response;
         }
 
