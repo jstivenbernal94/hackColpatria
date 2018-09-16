@@ -1,0 +1,28 @@
+#
+# generated on 2018/09/16 01:22:56
+#
+# --table-start--
+dataClass=com.villa.deimer.hackathon.models.entities.User
+tableName=users
+# --table-fields-start--
+# --field-start--
+fieldName=code
+generatedId=true
+# --field-end--
+# --field-start--
+fieldName=user_id
+canBeNull=false
+# --field-end--
+# --field-start--
+fieldName=name
+canBeNull=false
+# --field-end--
+# --field-start--
+fieldName=totalPoints
+# --field-end--
+# --field-start--
+fieldName=expirationPoints
+# --field-end--
+# --table-fields-end--
+# --table-end--
+#################################

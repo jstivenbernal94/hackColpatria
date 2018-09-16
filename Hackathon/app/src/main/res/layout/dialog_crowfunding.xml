@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:padding="20dp"
+    android:orientation="vertical"
+    android:background="@color/icons"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:ignore="UselessParent">
+        <TextView
+            android:id="@+id/lbl_title_dialog"
+            android:padding="16dp"
+            android:text="@string/lbl_title_dialog"
+            android:textColor="@color/primaryText"
+            android:textSize="19sp"
+            android:textAlignment="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <LinearLayout
+            android:id="@+id/layout_options_dialog"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/lbl_description_dialog"
+                android:text="@string/lbl_description_dialog"
+                android:textSize="20sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <Button
+                android:id="@+id/but_no_dialog"
+                android:background="@drawable/background_button_cancel"
+                android:text="@string/but_no"
+                android:textAllCaps="false"
+                android:textSize="20sp"
+                android:textColor="@color/divider"
+                android:layout_margin="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                tools:ignore="ButtonStyle" />
+            <Button
+                android:id="@+id/but_ok_dialog"
+                android:background="@drawable/background_button_ok"
+                android:text="@string/but_ok"
+                android:textAllCaps="false"
+                android:textSize="20sp"
+                android:textColor="@color/icons"
+                android:layout_margin="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                tools:ignore="ButtonStyle" />
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

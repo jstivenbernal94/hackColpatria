@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">Hackathon</string>
+
+    <string name="base_url">http://apihack.azurewebsites.net</string>
+    <string name="base_url_image">https://image.tmdb.org/t/p/w500/</string>
+
+    <string name="country">colombia</string>
+    <string name="format">json</string>
+
+    <string name="lbl_login">Login</string>
+    <string name="lbl_legend">Ingrese sus credenciales para continuar</string>
+
+    <string name="txt_email">Usuario</string>
+    <string name="txt_password">Contraseña</string>
+    <string name="title_activity_home">HomeActivity</string>
+
+    <string name="lbl_my_points">Puntos</string>
+    <string name="lbl_redeem_points">Redimir Puntos</string>
+    <string name="lbl_redeem">Escoja en que redimir sus puntos.</string>
+    <string name="menu_logout">Cerrar Sesión</string>
+
+    <string name="lbl_option_one">SERVICIOS&#160;&#160;&#160;</string>
+    <string name="lbl_option_two">COMIDA&#160;&#160;&#160;</string>
+    <string name="lbl_option_three">ROPA&#160;&#160;&#160;</string>
+    <string name="title_activity_products">ProductsActivity</string>
+
+    <string name="but_redimir">Redimir</string>
+    <string name="but_crowfunding">Ayúdame</string>
+
+    <string name="lbl_title_dialog">Crowfunding</string>
+    <string name="lbl_description_dialog">Le faltan %1$d puntos para redimir este producto ¿Desea pedir ayuda de la comunidad para obtener los puntos faltantes?</string>
+    <string name="but_ok">Aceptar</string>
+    <string name="but_no">Cancelar</string>
+
+</resources>
